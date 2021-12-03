@@ -1,17 +1,31 @@
 package com.ilovealt.leetcode;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 快排
  */
 public class QuickSort {
 
+	private static int[] newIntArray() {
+		int length = 20;
+		ThreadLocalRandom random = ThreadLocalRandom.current();
+		int[] numbs = new int[length];
+		for (int i = 0; i < length; i++) {
+			numbs[i] = random.nextInt(10000);
+		}
+		return numbs;
+	}
+
 	public static void main(String[] args) {
 		QuickSort quickSort = new QuickSort();
-		int[] nums = new int[]{3, 0 ,1};
-		quickSort.quickSort(nums);
-		System.out.println(" end " + Arrays.toString(nums));
+		int[] old = newIntArray();
+		System.out.println(Arrays.toString(old));
+
+		int[] bs1 = old.clone();
+		quickSort.quickSort(bs1);
+		System.out.println(Arrays.toString(bs1));
 	}
 
 	public void quickSort(int[] nums) {
@@ -53,6 +67,9 @@ public class QuickSort {
 	 * 替换
 	 */
 	public void swap(int[] nums, int start, int end) {
+		if (start == end) {
+			return;
+		}
 		int temp = nums[start];
 		nums[start] = nums[end];
 		nums[end] = temp;

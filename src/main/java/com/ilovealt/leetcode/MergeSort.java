@@ -1,17 +1,31 @@
 package com.ilovealt.leetcode;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 归并排序
  */
 public class MergeSort {
 
+	private static int[] newIntArray() {
+		int length = 20;
+		ThreadLocalRandom random = ThreadLocalRandom.current();
+		int[] numbs = new int[length];
+		for (int i = 0; i < length; i++) {
+			numbs[i] = random.nextInt(10000);
+		}
+		return numbs;
+	}
+
 	public static void main(String[] args) {
 		MergeSort mergeSort = new MergeSort();
-		int[] nums = new int[]{3, 0 ,1};
-		mergeSort.mergeSort(nums);
-		System.out.println(" end " + Arrays.toString(nums));
+		int[] old = newIntArray();
+		System.out.println(Arrays.toString(old));
+
+		int[] bs1 = old.clone();
+		mergeSort.mergeSort(bs1);
+		System.out.println(Arrays.toString(bs1));
 	}
 
 	public void mergeSort(int[] nums) {
@@ -66,7 +80,6 @@ public class MergeSort {
 		for (int l = 0; l < end-start+1; l++) {
 			nums[start+l] = temp[l];
 		}
-		System.out.println(Arrays.toString(nums));
 	}
 
 }
