@@ -26,6 +26,10 @@ public class MergeSort {
 		int[] bs1 = old.clone();
 		mergeSort.mergeSort(bs1);
 		System.out.println(Arrays.toString(bs1));
+
+		int[] bs2 = old.clone();
+		mergeSort.mergeSort_1(bs2);
+		System.out.println(Arrays.toString(bs2));
 	}
 
 	public void mergeSort(int[] nums) {
@@ -41,7 +45,7 @@ public class MergeSort {
 		if (start >= end) {
 			return;
 		}
-		int mid = (start + end) / 2;
+		int mid = start + (end - start) / 2;
 		mergeSortC(nums, start, mid);
 		mergeSortC(nums, mid+1, end);
 		//归并
@@ -82,4 +86,46 @@ public class MergeSort {
 		}
 	}
 
+	private int[] aux;
+	public void mergeSort_1(int[] nums) {
+		aux = new int[nums.length];
+		mergeSortC_1(nums, 0, nums.length-1);
+	}
+
+	/**
+	 * 递归调用 分治
+	 * 技巧：先提取递推公式；找到终止条件；转换为代码；
+	 */
+	public void mergeSortC_1(int[] nums, int start, int end) {
+		//终止条件
+		if (start >= end) {
+			return;
+		}
+		int mid = start + (end - start) / 2;
+		mergeSortC_1(nums, start, mid);
+		mergeSortC_1(nums, mid+1, end);
+		//归并
+		merge_1(nums, start, mid, end);
+	}
+
+	/**
+	 * 归并
+	 * 把前面分治的数据，归并处理
+	 * 这中方式是“算法”数中得解法
+	 */
+	public void merge_1(int[] nums, int start, int mid, int end) {
+		//双指针 标记原数组
+		int i = start, j = mid + 1;
+		//把原值复制到新数组中
+		for (int k = start; k <= end ; k++) {
+			aux[k] = nums[k];
+		}
+		//将temp复制回nums并排序
+		for (int k = start; k <= end ; k++) {
+			if (i > mid) { nums[k] = aux[j++]; }
+			else if (j > end) { nums[k] = aux[i++]; }
+			else if (aux[i] > aux[j]) { nums[k] = aux[j++]; }
+			else { nums[k] = aux[i++]; }
+		}
+	}
 }
