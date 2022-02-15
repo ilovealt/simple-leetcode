@@ -32,4 +32,25 @@ public class Solution {
 
     }
 
+
+    /**
+     * 整个while循环，i都在减小，但是两个数组需要根据判断做移动；
+     * 如果nums2还有剩余，需要全部移动到nums1中；
+     */
+    public void merge1(int[] nums1, int m, int[] nums2, int n) {
+        int i=m+n-1, mi=m-1, ni=n-1;
+        //两两对比
+        while (mi >= 0 && ni >= 0) {
+            if (nums1[mi] > nums2[ni]) {
+                nums1[i--] = nums1[mi--];
+            } else {
+                nums1[i--] = nums2[ni--];
+            }
+        }
+        //再判断nums2
+        while (ni >= 0) {
+            nums1[i--] = nums2[ni--];
+        }
+    }
+
 }
