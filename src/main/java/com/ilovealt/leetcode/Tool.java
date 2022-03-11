@@ -24,5 +24,13 @@ public final class Tool {
 		return numbs;
 	}
 
+	/**
+	 * 替换
+	 */
+	public static void swap(int[] nums, int start, int end) {
+		int temp = nums[start];
+		nums[start] = nums[end];
+		nums[end] = temp;
+	}
 
 }
