@@ -13,7 +13,7 @@ public class Solution {
 	 *   总结：
 	 */
 	public static void main(String[] args) {
-		int[] array = Tool.newArrayLength20();
+		//int[] array = Tool.newArrayLength20();
 	}
 
 }

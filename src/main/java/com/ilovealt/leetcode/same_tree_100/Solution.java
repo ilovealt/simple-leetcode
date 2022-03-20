@@ -11,8 +11,6 @@ import java.util.Queue;
 public class Solution {
 
 	public static void main(String[] args) {
-		Solution solution = new Solution();
-		int[] nums = new int[]{4,3,2,7,8,2,3,1};
 	}
 
 	//自己 深度优先搜索

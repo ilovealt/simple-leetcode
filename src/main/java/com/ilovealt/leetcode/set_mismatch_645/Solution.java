@@ -36,16 +36,4 @@ public class Solution {
 		return errorNumbs;
 	}
 
-	/**
-	 *  类型：位运算
-	 *  解题思路：
-	 *  时间复杂度：
-	 *  空间复杂度:
-	 */
-	public int[] findErrorNums_1(int[] nums) {
-		int[] errorNumbs = new int[2];
-		//TODO 位运算
-		return errorNumbs;
-	}
-
 }

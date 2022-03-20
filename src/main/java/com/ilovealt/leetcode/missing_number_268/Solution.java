@@ -31,9 +31,7 @@ public class Solution {
 	 * @return 缺少的数值
 	 */
 	public int missingNumber(int[] nums) {
-		//bubbleSort(nums);
-		//bubbleSortOptimization(nums);
-		//insertionSort(nums);
+		//这里可以使用多种排序方式：冒泡、选择、插入、归并、快排
 		selectionSort(nums);
 		int n = nums.length;
 		for (int i = 0; i < n-1; i++) {
@@ -44,73 +42,6 @@ public class Solution {
 		if (nums[0] != 0) { return 0; }
 		if (nums[n-1] != n) { return n; }
 		return 0;
-	}
-
-	/**
-	 * 冒泡排序  小值付出水面
-	 * @param nums 数组
-	 */
-	private void bubbleSort(int[] nums) {
-		int n = nums.length;
-		if (n <= 1) { return; }
-		for (int i = 0; i < nums.length; i++) {
-			for (int j = i-1; j >= 0 ; j--) {
-				if (nums[j] > nums[j+1]) {
-					int temp = nums[j];
-					nums[j] = nums[j+1];
-					nums[j+1] = temp;
-				}
-			}
-		}
-	}
-
-	/**
-	 * 优化冒泡排序  添加一个是否调整位置的标识位
-	 * @param nums 数组
-	 */
-	private void bubbleSortOptimization(int[] nums) {
-		int n = nums.length;
-		if (n <= 1) { return; }
-		for (int i = 0; i < n; i++) {
-			boolean flag = false;
-			for (int j = n-2; j >= i ; j--) {
-				if (nums[j] > nums[j+1]) {
-					int temp = nums[j];
-					nums[j] = nums[j+1];
-					nums[j+1] = temp;
-					flag = true;
-				}
-			}
-			if (!flag) {
-				break;
-			}
-		}
-	}
-
-
-	/**
-	 * 插入排序
-	 * 从前向后，逐个查找元素位置，并向后移动其他元素给当前元素找到适当的插入位置。
-	 * 根据有序度可以很好理解，每个元素的逆序度代码元素需要移动的次数
-	 */
-	private void insertionSort(int[] nums) {
-		int n = nums.length;
-		if (n <= 1) { return; }
-		for (int i = 1; i < n; i++) {
-			int cur = nums[i];
-			int j = i-1;
-			//使用 break 是因为 前面数据都有序，如果现在这两个数也有序，直接执行外循环向下比对就可以
-			for (; j >= 0; j--) {
-				if (nums[j] > cur) {
-					//数据向后移动
-					nums[j+1] = nums[j];
-				} else {
-					break;
-				}
-			}
-			//这里 j+1 是因为上面for循环多减了
-			nums[j+1] = cur;
-		}
 	}
 
 	/**

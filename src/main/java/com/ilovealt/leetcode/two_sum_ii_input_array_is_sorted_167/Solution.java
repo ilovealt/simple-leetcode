@@ -1,8 +1,6 @@
 package com.ilovealt.leetcode.two_sum_ii_input_array_is_sorted_167;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 数据范围：2 <= numbers.length <= 3 * 10^4; numbers 按 非递减顺序 排列;仅存在一个有效答案;

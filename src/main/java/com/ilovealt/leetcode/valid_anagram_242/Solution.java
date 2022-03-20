@@ -3,7 +3,6 @@ package com.ilovealt.leetcode.valid_anagram_242;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  *  数据范围、前提条件和边界条件：s和t仅包含小写字母；两个字符串都不为空或null
