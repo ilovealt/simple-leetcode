@@ -25,12 +25,21 @@ public final class Tool {
 	}
 
 	/**
-	 * 替换
+	 * 替换 数字
 	 */
 	public static void swap(int[] nums, int start, int end) {
 		int temp = nums[start];
 		nums[start] = nums[end];
 		nums[end] = temp;
+	}
+
+	/**
+	 * 替换 字符串
+	 */
+	public static void swap(String[] strArray, int start, int end) {
+		String temp = strArray[start];
+		strArray[start] = strArray[end];
+		strArray[end] = temp;
 	}
 
 }
